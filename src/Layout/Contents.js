@@ -1,14 +1,35 @@
 import React from 'react';
-import Footer from './Footer';
+import Sidebar from './Sidebar';
 import Header from './Header';
-import Menu from '../component/Menu';
+import styled from 'styled-components';
+
+const Contentstyle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+`
+
+const Main = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: yellowgreen;
+    height: 100vh;
+    width: 80vw;
+`
 
 function Contents(){
     return (
         <div>
-            <Header />
-            <Menu/>
-            <Footer />
+            <Contentstyle>
+                <Sidebar height="100vh"/>
+                <Main>
+                    <Header color="white"/>
+                    <Header color="yellogreen"/>
+                </Main>
+            </Contentstyle>
         </div>
     )
 }

@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
-function Header(){
+const Headerstyle = styled.div`
+    background-color: ${props => props.color || "red"};
+`;
+
+function Header({color}){
     return (
-        <>      
-            <p>This is Header</p>
-        </>
+        <Headerstyle color={color}>
+            this is header
+        </Headerstyle>
     )
 }
 
