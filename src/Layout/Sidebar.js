@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from './Footer';
 import Header from './Header';
+import Button from '../component/Button';
 import styled from 'styled-components';
 
 const Sidebarstyle = styled.div`
@@ -16,6 +17,7 @@ function Sidebar({height}){
     return (
         <Sidebarstyle height={height}> 
             <Header />
+            <Button />
             <Footer />
         </Sidebarstyle>
     )
