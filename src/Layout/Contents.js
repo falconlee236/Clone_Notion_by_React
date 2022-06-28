@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import styled from 'styled-components';
+import Footer from './Footer';
 
 const Contentstyle = styled.div`
     display: flex;
@@ -27,7 +28,7 @@ function Contents(){
                 <Sidebar height="100vh"/>
                 <Main>
                     <Header color="white"/>
-                    <Header color="yellogreen"/>
+                    <Footer />
                 </Main>
             </Contentstyle>
         </div>

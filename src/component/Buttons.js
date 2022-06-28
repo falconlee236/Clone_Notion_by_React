@@ -1,22 +1,24 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import {GiMagnifyingGlass} from 'react-icons/gi';
 import {AiOutlineClockCircle} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs';
 import {GoTriangleRight} from 'react-icons/go';
+import {GiBrain} from 'react-icons/gi';
 
 const Buttonstyle = styled.div`
     background-color: wheat;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 `
-function ButtonItem({icon, title}){
+export function ButtonItem({icon, title}){
     const icons = {
         magnify: <GiMagnifyingGlass />,
         clock: <AiOutlineClockCircle />,
         gear: <BsFillGearFill />,
-        left_tri: <GoTriangleRight />
+        left_tri: <GoTriangleRight />,
+        brain: <GiBrain />
     };
 
     return (
@@ -29,7 +31,7 @@ function ButtonItem({icon, title}){
 }
 
 
-function Button(){
+function Buttons(){
     return (
         <div>
             <ButtonItem icon="magnify" title="빠른검색"/>
@@ -39,4 +41,4 @@ function Button(){
     )
 }
 
-export default Button;
+export default Buttons;

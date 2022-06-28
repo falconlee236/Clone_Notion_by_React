@@ -5,10 +5,10 @@ const Headerstyle = styled.div`
     background-color: ${props => props.color || "red"};
 `;
 
-function Header({color}){
+function Header({color, children}){
     return (
         <Headerstyle color={color}>
-            this is header
+            {children ? children : "this is header"}
         </Headerstyle>
     )
 }

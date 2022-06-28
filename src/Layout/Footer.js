@@ -5,10 +5,10 @@ const Footerstyle = styled.div`
     background-color: blue;
 `
 
-function Footer(){
+function Footer({children}){
     return (
         <Footerstyle>      
-            This is Footer
+            {children ? children : "this is footer"}
         </Footerstyle>
     )
 }
