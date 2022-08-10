@@ -16,7 +16,7 @@ const Main = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: yellowgreen;
+    background-color: white;
     height: 100vh;
     width: 80vw;
 `

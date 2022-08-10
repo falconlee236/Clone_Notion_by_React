@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 const Headerstyle = styled.div`
     background-color: ${props => props.color || "red"};
+    margin-bottom: ${props => props.margin || "0px"};
 `;
 
-function Header({color, children}){
+function Header({margin, color, children}){
     return (
-        <Headerstyle color={color}>
+        <Headerstyle color={color} margin={margin}>
             {children ? children : "this is header"}
         </Headerstyle>
     )
