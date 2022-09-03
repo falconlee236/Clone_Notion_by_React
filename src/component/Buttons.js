@@ -6,11 +6,16 @@ import {BsFillGearFill, BsFillPinAngleFill} from 'react-icons/bs';
 import {GoTriangleRight} from 'react-icons/go';
 import {GiBrain} from 'react-icons/gi';
 import {GrNotes} from 'react-icons/gr';
+import { Link } from "react-router-dom";
 
 const Buttonstyle = styled.div`
+    box-sizing: border-box;
+    padding-left: ${props => props.isArrow ? "10px" : "20px"};
+    height: 30px;
+
     background-color: rgb(251 251 250);
     display: flex;
-    justify-content: center;
+    margin-right: auto;
     cursor: pointer;
 
     // &는 자기 자신 선택
@@ -18,6 +23,8 @@ const Buttonstyle = styled.div`
         background: rgba(55, 53, 47, 0.08);
         color: rgb(55, 53, 47);
     }
+
+    
 `
 
 const ButtonContainer = styled.div`
@@ -36,7 +43,7 @@ export function ButtonItem({icon, title, isArrow}){
     };
 
     return (
-        <Buttonstyle>
+        <Buttonstyle isArrow={isArrow}>
             {isArrow ? icons["left_tri"] : null}
             {icons[icon]}
             {title}
@@ -50,7 +57,11 @@ function Buttons({itemArr, isArrow}){
     return (
         <ButtonContainer>
             {itemArr.map(item => {
-                return (<ButtonItem icon={item.icon} title={item.title} isArrow={isArrow}/>)
+                return (
+                    <Link to={item.url || "/"} style={{ textDecoration: "none", color: "black"}}>
+                        <ButtonItem icon={item.icon} title={item.title} isArrow={isArrow}/>
+                    </Link>
+                )
             })}
         </ButtonContainer>
     )

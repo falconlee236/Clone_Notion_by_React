@@ -37,7 +37,8 @@ const TopButtons = [
 const MiddleButtons = [
     {
         icon: "note",
-        title: "시작하기"
+        title: "시작하기",
+        url: "/start"
     },
     {
         icon: "pin",
