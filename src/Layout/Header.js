@@ -6,10 +6,14 @@ const Headerstyle = styled.div`
     margin-bottom: ${props => props.margin || "0px"};
 `;
 
+const Temp = styled.div`
+    color: "blue";
+`;
+
 function Header({margin, color, children}){
     return (
         <Headerstyle color={color} margin={margin}>
-            {children ? children : "this is header"}
+            {children ? children : <Temp>this is header?????????</Temp>}
         </Headerstyle>
     )
 }

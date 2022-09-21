@@ -1,8 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-import Header from './Header';
 import styled from 'styled-components';
-import Footer from './Footer';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../component/Home';
 import Start from '../component/Start';
@@ -30,12 +28,10 @@ function Contents(){
             <Contentstyle>
                 <Sidebar height="100vh"/>
                 <Main>
-                    <Header color="white"/>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path='/start' element={<Start/>}/>
                     </Routes>
-                    <Footer />
                 </Main>
             </Contentstyle>
         </div>
