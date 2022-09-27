@@ -1,16 +1,17 @@
 import React from "react";
 import styled from 'styled-components';
 import {GiMagnifyingGlass} from 'react-icons/gi';
-import {AiOutlineClockCircle} from 'react-icons/ai';
+import {AiOutlineClockCircle,  AiOutlinePlus} from 'react-icons/ai';
 import {BsFillGearFill, BsFillPinAngleFill} from 'react-icons/bs';
-import {GoTriangleRight} from 'react-icons/go';
-import {GiBrain} from 'react-icons/gi';
+import {GoTriangleRight} from 'react-icons/go'; 
+import {GiBrain, GiTrashCan} from 'react-icons/gi';
 import {GrNotes} from 'react-icons/gr';
+import {HiOutlineTemplate, HiDownload} from 'react-icons/hi';
 import { Link } from "react-router-dom";
 
 const Buttonstyle = styled.div`
     box-sizing: border-box;
-    padding-left: ${props => props.isArrow ? "10px" : "20px"};
+    padding-left: ${props => props.isArrow ? "5px" : "10px"};
     height: 30px;
 
     background-color: rgb(251 251 250);
@@ -23,8 +24,6 @@ const Buttonstyle = styled.div`
         background: rgba(55, 53, 47, 0.08);
         color: rgb(55, 53, 47);
     }
-
-    
 `
 
 const ButtonContainer = styled.div`
@@ -39,7 +38,11 @@ export function ButtonItem({icon, title, isArrow}){
         left_tri: <GoTriangleRight />,
         brain: <GiBrain />,
         note: <GrNotes />,
-        pin: <BsFillPinAngleFill />
+        pin: <BsFillPinAngleFill />,
+        plus: <AiOutlinePlus />,
+        template: <HiOutlineTemplate />,
+        download: <HiDownload />,
+        trashcan: <GiTrashCan />
     };
 
     return (

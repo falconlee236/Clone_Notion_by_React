@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Footerstyle = styled.div`
-    background-color: blue;
+    margin-bottom: ${props => props.margin || "0px"};
 `
 
 function Footer({children}){

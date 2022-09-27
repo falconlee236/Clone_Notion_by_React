@@ -45,6 +45,35 @@ const MiddleButtons = [
         title: "빠른메모"
     }
 ]
+
+const PageAddButton = [
+    {
+        icon: "plus",
+        title: "페이지 추가"
+    }
+]
+/*
+const NewPageButton = [
+    {
+        icon: "plus",
+        title: "새 페이지"
+    }
+]
+*/
+const BottomButtons = [
+    {
+        icon: "template",
+        title: "탬플릿"
+    },
+    {
+        icon: "download",
+        title: "가져오기"
+    },
+    {
+        icon: "trashcan",
+        title: "휴지통"
+    }
+]
 /*
 ButtonItem icon="magnify" title="빠른검색"/>
             <ButtonItem icon="clock" title="모든 업데이트"/>
@@ -59,8 +88,12 @@ function Sidebar({height}){
             <SidebarMiddlestyle>
                 <Buttons itemArr={TopButtons} isArrow={false}/>
                 <Buttons itemArr={MiddleButtons} isArrow={true}/>
+                <Buttons itemArr={PageAddButton} isArrow={false}/>
+                <Buttons itemArr={BottomButtons} isArrow={false}/>
             </SidebarMiddlestyle>
-            <Footer />
+            <Footer>
+                <ButtonItem icon="plus" title="새페이지"/>
+            </Footer>
         </Sidebarstyle>
     )
 }
