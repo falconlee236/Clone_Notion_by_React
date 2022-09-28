@@ -1,0 +1,12 @@
+safe.directory=/home/falconlee236/project/clone_notion_by_react
+user.email=falconlee236@naver.com
+user.name=falconlee236
+credential.helper=cache
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/falconlee236/clone_notion_by_react/
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.dev.remote=origin
+branch.dev.merge=refs/heads/dev

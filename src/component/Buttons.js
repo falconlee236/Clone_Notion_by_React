@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 const Buttonstyle = styled.div`
     box-sizing: border-box;
     padding-left: ${props => props.isArrow ? "5px" : "10px"};
-    height: 30px;
+    padding-top: ${props => props.isTitle ? "15px" : "5px"};
+    height: ${props => props.isTitle ? "50px" : "30px"};
 
     background-color: rgb(251 251 250);
     display: flex;
@@ -30,7 +31,7 @@ const ButtonContainer = styled.div`
     margin-bottom: 10px;
 `;
 
-export function ButtonItem({icon, title, isArrow}){
+export function ButtonItem({icon, title, isArrow, isTitle}){
     const icons = {
         magnify: <GiMagnifyingGlass />,
         clock: <AiOutlineClockCircle />,
@@ -46,7 +47,7 @@ export function ButtonItem({icon, title, isArrow}){
     };
 
     return (
-        <Buttonstyle isArrow={isArrow}>
+        <Buttonstyle isArrow={isArrow} isTitle={isTitle}>
             {isArrow ? icons["left_tri"] : null}
             {icons[icon]}
             {title}
@@ -56,13 +57,13 @@ export function ButtonItem({icon, title, isArrow}){
 }
 
 
-function Buttons({itemArr, isArrow}){
+function Buttons({itemArr, isArrow, isTitle}){
     return (
         <ButtonContainer>
             {itemArr.map(item => {
                 return (
                     <Link to={item.url || "/"} style={{ textDecoration: "none", color: "black"}}>
-                        <ButtonItem icon={item.icon} title={item.title} isArrow={isArrow}/>
+                        <ButtonItem icon={item.icon} title={item.title} isArrow={isArrow} isTitle={isTitle}/>
                     </Link>
                 )
             })}
