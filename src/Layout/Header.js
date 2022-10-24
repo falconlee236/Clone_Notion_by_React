@@ -34,7 +34,7 @@ const Tmpdiv = styled.div`
 `
 
 
-function Header(){
+function Header({title}){
     function newDateformat(){
         const today = new Date();
         return `${today.getMonth()}월 ${today.getDate()}일 편집`;
@@ -43,7 +43,7 @@ function Header(){
         <Headerstyle>
             <div>
                 <HeaderButtonstyle style={{width: '80px'}}>
-                    <span style={{fontSize: '15px'}}>시작하기</span>
+                    <span style={{fontSize: '15px'}}>{title }</span>
                 </HeaderButtonstyle>
             </div>
             <Tmpdiv>
@@ -52,7 +52,7 @@ function Header(){
                         {newDateformat()}
                     </span>
                     <ReactTooltip id='bottom' place='bottom' effect='solid'>
-                        이것은 툴팁입니다
+                        이상윤님이 {newDateformat()}
                     </ReactTooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>

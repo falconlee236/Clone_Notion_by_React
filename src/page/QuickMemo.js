@@ -2,14 +2,14 @@ import React from "react";
 import Header from "../Layout/Header";
 import Footer from "../Layout/Footer";
 
-function Start(){
+function QuickMemo(){
     return (
         <>
-            <Header color="blue"/>
-            여기는 시작 입니다.
+            <Header title="빠른메모"/>
+            여기는 빠른메모 입니다.
             <Footer />
         </>
     )
 };
 
-export default Start;
+export default QuickMemo;

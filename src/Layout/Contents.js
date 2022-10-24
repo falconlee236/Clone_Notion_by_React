@@ -2,8 +2,10 @@ import React from 'react';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
-import Home from '../component/Home';
-import Start from '../component/Start';
+import Home from '../page/Home';
+import Start from '../page/Start';
+import QuickMemo from '../page/QuickMemo';
+
 
 const Contentstyle = styled.div`
     display: flex;
@@ -22,6 +24,7 @@ const Main = styled.div`
     width: 80vw;
 `
 
+
 function Contents(){
     return (
         <div>
@@ -31,6 +34,7 @@ function Contents(){
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path='/start' element={<Start/>}/>
+                        <Route path='/quickmemo' element={<QuickMemo/>}/>
                     </Routes>
                 </Main>
             </Contentstyle>

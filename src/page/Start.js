@@ -2,14 +2,14 @@ import React from "react";
 import Header from "../Layout/Header";
 import Footer from "../Layout/Footer";
 
-function Home(){
+function Start(){
     return (
         <>
-            <Header color="red"/>
-            여기는 홈 입니다.
+            <Header title="시작하기"/>
+            여기는 시작 입니다.
             <Footer />
         </>
     )
 };
 
-export default Home;
+export default Start;
