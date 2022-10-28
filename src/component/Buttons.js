@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from 'styled-components';
 import {GiMagnifyingGlass} from 'react-icons/gi';
 import {AiOutlineClockCircle,  AiOutlinePlus} from 'react-icons/ai';
@@ -8,6 +8,8 @@ import {GiBrain, GiTrashCan} from 'react-icons/gi';
 import {GrNotes} from 'react-icons/gr';
 import {HiOutlineTemplate, HiDownload} from 'react-icons/hi';
 import { Link } from "react-router-dom";
+import { ButtonInfoContext } from "../App";
+//import AddPage from '../component/AddPage';
 
 const Buttonstyle = styled.div`
     box-sizing: border-box;
@@ -57,9 +59,13 @@ export function ButtonItem({icon, title, isArrow, isTitle}){
 }
 
 
-function Buttons({itemArr, isArrow, isTitle}){
+function Buttons({itemArr, isArrow, isTitle, isAdd}){
+    const [, dispatch] = useContext(ButtonInfoContext);
+    const AddPage = (() => {
+        dispatch({type: 'CREATE_USER'});
+    })
     return (
-        <ButtonContainer>
+        <ButtonContainer onClick={isAdd ? AddPage : null}>
             {itemArr.map(item => {
                 return (
                     <Link to={item.url || "/"} style={{ textDecoration: "none", color: "black"}}>

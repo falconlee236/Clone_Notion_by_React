@@ -2,7 +2,7 @@ import React from 'react';
 import Buttons, {ButtonItem} from '../component/Buttons';
 import styled from 'styled-components';
 import { useContext } from 'react';
-import { ButtonInfoContext } from '../context/ButtonInfoContext';
+import { ButtonInfoContext } from '../App';
 
 const Sidebarstyle = styled.div`
     display: flex;
@@ -31,8 +31,8 @@ const SidebarMiddlestyle = styled.div`
 
 
 function Sidebar({height}){
-    const ButtonInfo = useContext(ButtonInfoContext);
-
+    const [ButtonInfo] = useContext(ButtonInfoContext);
+    console.log(ButtonInfo);
     return (
         <Sidebarstyle height={height}> 
             <SidebarHeader>
@@ -41,7 +41,7 @@ function Sidebar({height}){
             <SidebarMiddlestyle>
                 <Buttons itemArr={ButtonInfo.TopInfo} isArrow={false}/>
                 <Buttons itemArr={ButtonInfo.MiddleInfo} isArrow={true}/>
-                <Buttons itemArr={ButtonInfo.PageAddInfo} isArrow={false}/>
+                <Buttons itemArr={ButtonInfo.PageAddInfo} isArrow={false} isAdd={true}/>
                 <Buttons itemArr={ButtonInfo.BottomInfo} isArrow={false}/>
             </SidebarMiddlestyle>
             <SidebarFooter>
