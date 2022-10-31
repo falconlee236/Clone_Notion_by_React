@@ -4,7 +4,8 @@ import {MdChatBubbleOutline} from 'react-icons/md';
 import {HiOutlineClock} from 'react-icons/hi';
 import {AiOutlineStar} from 'react-icons/ai';
 import {BsThreeDots} from 'react-icons/bs';
-import ReactTooltip from 'react-tooltip';
+import Tooltip from '@mui/material/Tooltip';
+import { IconButton } from '@mui/material';
 
 const Headerstyle = styled.div`
     display: flex;
@@ -21,11 +22,10 @@ const HeaderButtonstyle = styled.div`
     margin: 5px 10px 5px;
     height: 25px;
     width: 25px;
-    
     &:hover{
         background: rgba(55, 53, 47, 0.08);
         color: rgb(55, 53, 47);
-    }
+   }
 `
 
 const Tmpdiv = styled.div`
@@ -42,38 +42,54 @@ function Header({title}){
         <Headerstyle>
             <div>
                 <HeaderButtonstyle style={{width: '80px'}}>
-                    <span style={{fontSize: '15px'}}>{title}</span>
+                    <IconButton>
+                        <span style={{fontSize: '15px'}}>{title}</span>
+                    </IconButton>
                 </HeaderButtonstyle>
             </div>
             <Tmpdiv>
                 <HeaderButtonstyle style={{width: '100px'}}>
-                    <span data-tip data-for='bottom' style={{fontSize: '12px'}} >
-                        {newDateformat()}
-                    </span>
-                    <ReactTooltip id='bottom' place='bottom' effect='solid'>
-                        이상윤님이 {newDateformat()}
-                    </ReactTooltip>
+                    <Tooltip title={newDateformat()} placement="bottom">
+                        <span style={{fontSize: '12px'}} >
+                            {newDateformat()}
+                        </span>
+                    </Tooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>
-                    <span style={{fontSize: '12px'}}>공유</span>
+                    <Tooltip title="웹에서 공유하거나 게시" placement='bottom'>
+                        <span style={{fontSize: '12px'}}>공유</span>
+                    </Tooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>
-                    <MdChatBubbleOutline size={20}/>
+                    <Tooltip title="댓글 사이드바 열기" placement='bottom'>
+                        <IconButton>
+                            <MdChatBubbleOutline size={20}/>
+                        </IconButton>
+                    </Tooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>
-                    <HiOutlineClock size={20}/>
+                    <Tooltip title="업데이트 사이드바 열기" placement='bottom'>
+                        <IconButton>
+                            <HiOutlineClock size={20}/>
+                        </IconButton>
+                    </Tooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>
-                    <AiOutlineStar size={20}/>
+                    <Tooltip title="사이드바에 이 페이지 고정 Cntr+Art+Shift+F" placement='bottom-end'>
+                        <IconButton>
+                            <AiOutlineStar size={20}/>
+                        </IconButton>
+                    </Tooltip>
                 </HeaderButtonstyle>
                 <HeaderButtonstyle>
-                    <BsThreeDots size={20}/>
+                    <Tooltip title="스타일, 내보내기 등" placement='bottom-end'>
+                        <IconButton>
+                            <BsThreeDots size={20}/>
+                        </IconButton>
+                    </Tooltip>
                 </HeaderButtonstyle>
             </Tmpdiv>
-        </Headerstyle>
-
-        
+        </Headerstyle> 
     )
 }
-
 export default Header;
