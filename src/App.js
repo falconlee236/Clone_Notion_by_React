@@ -4,13 +4,12 @@ import { createContext } from 'react';
 import ButtonInfo from './context/ButtonInfoContext';
 
 
-
-
 function reducer(state, action){
   const newobj = {
     icon: "note",
-    title: "새 페이지들",
+    title: "제목 없음",
   }
+
   switch(action.type){
     case 'CREATE_USER':
       return {

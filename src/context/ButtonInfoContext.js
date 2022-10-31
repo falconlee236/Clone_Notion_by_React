@@ -5,7 +5,7 @@ const TopButtons = [
     },
     {
         icon: "clock",
-        title: "모든 업데이트"
+        title: "업데이트"
     },
     {
         icon: "gear",
@@ -15,7 +15,7 @@ const TopButtons = [
   
   const MiddleButtons = [
     {
-        icon: "note",
+        icon: "notes",
         title: "시작하기",
         url: "/start"
     },

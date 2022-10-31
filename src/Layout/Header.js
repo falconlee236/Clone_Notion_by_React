@@ -10,7 +10,7 @@ const Headerstyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80vw;
+    width: 84.5vw;
     height: 50px;
 `;
 
@@ -26,7 +26,6 @@ const HeaderButtonstyle = styled.div`
         background: rgba(55, 53, 47, 0.08);
         color: rgb(55, 53, 47);
     }
-    //border: solid black 3px;
 `
 
 const Tmpdiv = styled.div`
@@ -43,7 +42,7 @@ function Header({title}){
         <Headerstyle>
             <div>
                 <HeaderButtonstyle style={{width: '80px'}}>
-                    <span style={{fontSize: '15px'}}>{title }</span>
+                    <span style={{fontSize: '15px'}}>{title}</span>
                 </HeaderButtonstyle>
             </div>
             <Tmpdiv>

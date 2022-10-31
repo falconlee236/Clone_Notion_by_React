@@ -8,10 +8,12 @@ import QuickMemo from '../page/QuickMemo';
 
 
 const Contentstyle = styled.div`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 `
 
 const Main = styled.div`
@@ -21,7 +23,7 @@ const Main = styled.div`
     align-items: center;
     background-color: white;
     height: 100vh;
-    width: 80vw;
+    width: 84.5vw;
 `
 
 

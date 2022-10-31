@@ -10,17 +10,15 @@ const Sidebarstyle = styled.div`
     justify-content: space-between;
     background-color: rgb(251 251 250);
     height: ${props => props.height || '100vh'};
-    width: 20vw;
+    width: 15.5vw;
 `;
 
 const SidebarHeader = styled.div`
-    margin: 10px;
-    border-bottom: groove 1px black;
+    margin: 0px;
 `
 
 const SidebarFooter = styled.div`
-    margin: 10px;
-    border-top: groove 1px black;
+    margin: 0px;
 `
 
 const SidebarMiddlestyle = styled.div`
@@ -40,7 +38,7 @@ function Sidebar({height}){
             </SidebarHeader>
             <SidebarMiddlestyle>
                 <Buttons itemArr={ButtonInfo.TopInfo} isArrow={false}/>
-                <Buttons itemArr={ButtonInfo.MiddleInfo} isArrow={true}/>
+                <Buttons itemArr={ButtonInfo.MiddleInfo} isArrow={true} isMiddle={true}/>
                 <Buttons itemArr={ButtonInfo.PageAddInfo} isArrow={false} isAdd={true}/>
                 <Buttons itemArr={ButtonInfo.BottomInfo} isArrow={false}/>
             </SidebarMiddlestyle>
