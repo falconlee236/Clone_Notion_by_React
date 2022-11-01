@@ -12,7 +12,7 @@ const Headerstyle = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 84.5vw;
-    height: 50px;
+    height: 7vh;
 `;
 
 const HeaderButtonstyle = styled.div`

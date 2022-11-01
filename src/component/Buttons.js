@@ -9,6 +9,8 @@ import {GrNotes, GrNote} from 'react-icons/gr';
 import {HiOutlineTemplate, HiDownload} from 'react-icons/hi';
 import { Link } from "react-router-dom";
 import { ButtonInfoContext } from "../App";
+import { MdDoubleArrow }  from 'react-icons/md';
+
 
 const ButtonContainer = styled.div`
     display: flex;
@@ -91,12 +93,19 @@ export function ButtonItem({icon, title, isArrow, isTitle, isMiddle}){
                 {title}
             </Buttonstyle>
             <SideButtonContainer>
-                <MiniButtonStyle isMiddle={isMiddle}>
-                    <BsThreeDots className="visible"/>
-                </MiniButtonStyle>
-                <MiniButtonStyle isMiddle={isMiddle}>
-                    <AiOutlinePlus className="visible" />
-                </MiniButtonStyle>
+                {isTitle ?
+                    <MiniButtonStyle isMiddle={true}>
+                        <MdDoubleArrow className="visible" style={{transform: "rotate(180deg)"}} />
+                    </MiniButtonStyle> : 
+                    (<>
+                        <MiniButtonStyle isMiddle={isMiddle}>
+                            <BsThreeDots className="visible"/>
+                        </MiniButtonStyle>
+                        <MiniButtonStyle isMiddle={isMiddle}>
+                            <AiOutlinePlus className="visible" />
+                        </MiniButtonStyle>
+                    </>)
+                }    
             </SideButtonContainer>
         </ButtonContainer>
         

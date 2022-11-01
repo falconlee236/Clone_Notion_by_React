@@ -30,7 +30,6 @@ const SidebarMiddlestyle = styled.div`
 
 function Sidebar({height}){
     const [ButtonInfo] = useContext(ButtonInfoContext);
-    console.log(ButtonInfo);
     return (
         <Sidebarstyle height={height}> 
             <SidebarHeader>
