@@ -24,7 +24,8 @@ const Main = styled.div`
     align-items: center;
     background-color: white;
     height: 100vh;
-    width: 84.5vw;
+    //width: 84.5vw;
+    width: ${props => props.isOpen ? "84.5vw" : "100vw"};
 `
 
 
@@ -33,12 +34,12 @@ function Contents(){
     const toggleDrawer = (() => setOpen(!open));
     
     return (
-        <DrawerOpenContext.Provider value={toggleDrawer}>
+        <DrawerOpenContext.Provider value={[toggleDrawer, open]}>
             <Contentstyle>
                 <Drawer variant='persistent' anchor='left' open={open}>
                     <Sidebar height="100vh"/>
                 </Drawer>
-                <Main>
+                <Main isOpen={open}>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path='/start' element={<Start/>}/>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContext } from 'react';
 import styled from 'styled-components';
 import {MdChatBubbleOutline} from 'react-icons/md';
 import {HiOutlineClock} from 'react-icons/hi';
@@ -6,6 +7,8 @@ import {AiOutlineStar} from 'react-icons/ai';
 import {BsThreeDots} from 'react-icons/bs';
 import Tooltip from '@mui/material/Tooltip';
 import { IconButton } from '@mui/material';
+import { DrawerOpenContext } from './Contents';
+import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
 
 const Headerstyle = styled.div`
     display: flex;
@@ -25,7 +28,10 @@ const HeaderButtonstyle = styled.div`
     &:hover{
         background: rgba(55, 53, 47, 0.08);
         color: rgb(55, 53, 47);
-   }
+    }
+    &.drawerController{
+        visibility: ${props => props.isOpen ? "collapse" : "visible"};
+    }
 `
 
 const Tmpdiv = styled.div`
@@ -34,19 +40,27 @@ const Tmpdiv = styled.div`
 
 
 function Header({title}){
+    const [toggleDrawer, open] = useContext(DrawerOpenContext);
     function newDateformat(){
         const today = new Date();
         return `${today.getMonth()}월 ${today.getDate()}일 편집`;
     }
     return (
         <Headerstyle>
-            <div>
-                <HeaderButtonstyle style={{width: '80px'}}>
+            <Tmpdiv>
+                <HeaderButtonstyle className='drawerController' style={{width: '40px'}} isOpen={open} onClick={toggleDrawer}>
+                    <Tooltip title="사이드바 열기" placement='right'>
+                        <IconButton>
+                            <ViewHeadlineIcon />
+                        </IconButton>
+                    </Tooltip>
+                </HeaderButtonstyle>
+                <HeaderButtonstyle style={{width: '40px'}}>
                     <IconButton>
                         <span style={{fontSize: '15px'}}>{title}</span>
                     </IconButton>
                 </HeaderButtonstyle>
-            </div>
+            </Tmpdiv>
             <Tmpdiv>
                 <HeaderButtonstyle style={{width: '100px'}}>
                     <Tooltip title={newDateformat()} placement="bottom">

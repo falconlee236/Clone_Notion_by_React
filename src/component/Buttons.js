@@ -39,7 +39,7 @@ const Buttonstyle = styled.div`
     box-sizing: border-box;
     font-size: ${props => props.isTitle ? "17px" : "14px"};
     padding-left: ${props => props.isArrow ? "10px" : "15px"};
-    padding-top: ${props => props.isTitle ? "10px" : "5px"};
+    padding-top: ${props => props.isTitle ? "15px" : "5px"};
     height: ${props => props.isTitle ? "50px" : "30px"};
     width: 250px;
 `
@@ -80,7 +80,7 @@ export function ButtonItem({icon, title, isArrow, isTitle, isMiddle}){
         trashcan: <GiTrashCan />
     };
 
-    const toggleDrawer = useContext(DrawerOpenContext);
+    const [toggleDrawer] = useContext(DrawerOpenContext);
     
     return (
         <ButtonContainer isMiddle={isMiddle}>
