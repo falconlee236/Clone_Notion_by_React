@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from 'react';
+import ReactQuill, {Quill} from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import Header from "../Layout/Header";
 import styled from "styled-components";
+
+import ImageResize from 'quill-image-resize';
+Quill.register('modules/ImageResize', ImageResize);
 
 const Container = styled.div`
     display: flex;
@@ -9,27 +14,60 @@ const Container = styled.div`
     align-items: center;
     width: 80vw;
     height: 90vh;
+
+    .editor{
+        width: 80vw;
+        height: 85vh;
+        position: relative;
+        top: 6vh;
+    }
 `
 
 function Home(){
-    const repeat = () => {
-        const result = [];
-        for(let i = 0; i < 10; i++){
-            result.push(<><span>여기는 테스트 페이지입니다.</span><br/></>);
+    const modules = {
+        toolbar: [
+          //[{ 'font': [] }],
+          [{ 'header': [1, 2, false] }],
+          ['bold', 'italic', 'underline','strike', 'blockquote'],
+          [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+          ['link', 'image'],
+          [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+          ['clean']
+        ],
+        
+        /* 추가된 코드 */
+        ImageResize: {
+            parchment: Quill.import('parchment')
         }
-        return result;
-    }
+      }
+    
+      const formats = [
+        //'font',
+        'header',
+        'bold', 'italic', 'underline', 'strike', 'blockquote',
+        'list', 'bullet', 'indent',
+        'link', 'image',
+        'align', 'color', 'background',        
+      ]
+
+    const [value, setValue] = useState('');
     return (
         <>
-        <Header title="홈"/>
-        <Container>
-            {repeat()}
-        </Container>
+            <Header title="홈"/>
+            <Container>
+                <ReactQuill 
+                    theme="snow" 
+                    value={value || ''}
+                    modules={modules}
+                    formats={formats} 
+                    onChange={(content, delta, source, editor) => setValue(editor.getHTML())} 
+                    className="editor"
+                />  
+            </Container>
         </>
     )
 };
 
 export default Home;
-
-//사이드바 따라다니게 만들어야함
-//사이드바 UI사용해야 할거 같음
+//https://velog.io/@holim0/React-Quill-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0
+//https://jforj.tistory.com/211
