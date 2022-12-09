@@ -16,6 +16,7 @@ const Headerstyle = styled.div`
     align-items: center;
     width: 84.5vw;
     height: 7vh;
+    position: fixed;
 `;
 
 const HeaderButtonstyle = styled.div`
