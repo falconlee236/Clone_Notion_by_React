@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+import Contents from './Layout/Contents';
+import { createContext } from 'react';
+import ButtonInfo from './context/ButtonInfoContext';
+
+
+function reducer(state, action){
+  const newobj = {
+    icon: "note",
+    title: "제목 없음",
+  }
+
+  switch(action.type){
+    case 'CREATE_USER':
+      return {
+        ...state,
+         MiddleInfo: state.MiddleInfo.concat(newobj)
+      };
+    default:
+      return state;
+  }
+}
+
+export const ButtonInfoContext = createContext(null);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ButtonInfoContext.Provider value={useReducer(reducer, ButtonInfo)}>
+      <Contents />
+    </ButtonInfoContext.Provider>
   );
 }
 
