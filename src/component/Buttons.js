@@ -10,6 +10,7 @@ import {HiOutlineTemplate, HiDownload} from 'react-icons/hi';
 import { Link } from "react-router-dom";
 import { ButtonInfoContext } from "../App";
 import { MdDoubleArrow }  from 'react-icons/md';
+import { DrawerOpenContext } from "../Layout/Contents";
 
 
 const ButtonContainer = styled.div`
@@ -79,6 +80,8 @@ export function ButtonItem({icon, title, isArrow, isTitle, isMiddle}){
         trashcan: <GiTrashCan />
     };
 
+    const toggleDrawer = useContext(DrawerOpenContext);
+    
     return (
         <ButtonContainer isMiddle={isMiddle}>
             <Buttonstyle isArrow={isArrow} isTitle={isTitle}>
@@ -94,7 +97,7 @@ export function ButtonItem({icon, title, isArrow, isTitle, isMiddle}){
             </Buttonstyle>
             <SideButtonContainer>
                 {isTitle ?
-                    <MiniButtonStyle isMiddle={true}>
+                    <MiniButtonStyle isMiddle={isMiddle} onClick={toggleDrawer}>
                         <MdDoubleArrow className="visible" style={{transform: "rotate(180deg)"}} />
                     </MiniButtonStyle> : 
                     (<>

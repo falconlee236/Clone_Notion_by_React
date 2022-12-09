@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {createContext, useState} from 'react';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
@@ -30,17 +30,10 @@ const Main = styled.div`
 
 function Contents(){
     const [open, setOpen] = useState(true);
+    const toggleDrawer = (() => setOpen(!open));
     
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    };
-
-    const handelDrawerClose = () => {
-        setOpen(false);
-    };
-
     return (
-        <div>
+        <DrawerOpenContext.Provider value={toggleDrawer}>
             <Contentstyle>
                 <Drawer variant='persistent' anchor='left' open={open}>
                     <Sidebar height="100vh"/>
@@ -53,8 +46,10 @@ function Contents(){
                     </Routes>
                 </Main>
             </Contentstyle>
-        </div>
+        </DrawerOpenContext.Provider>
     )
 }
 
 export default Contents;
+
+export const DrawerOpenContext = createContext(null)

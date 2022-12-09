@@ -14,7 +14,7 @@ const Container = styled.div`
 function Home(){
     const repeat = () => {
         const result = [];
-        for(let i = 0; i < 50; i++){
+        for(let i = 0; i < 10; i++){
             result.push(<><span>여기는 테스트 페이지입니다.</span><br/></>);
         }
         return result;

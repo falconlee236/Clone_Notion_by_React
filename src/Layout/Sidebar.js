@@ -33,7 +33,7 @@ function Sidebar({height}){
     return (
         <Sidebarstyle height={height}> 
             <SidebarHeader>
-                <ButtonItem icon="brain" title="sangyuns brain" isTitle={true}/>
+                <ButtonItem icon="brain" title="sangyuns brain" isTitle={true} isMiddle={true}/>
             </SidebarHeader>
             <SidebarMiddlestyle>
                 <Buttons itemArr={ButtonInfo.TopInfo} isArrow={false}/>
